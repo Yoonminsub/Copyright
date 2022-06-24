@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int x,y; // 출발점의 좌표
+int go_num; // 도착점의 갯수
+int go_x, go_y; // 도착점의 좌표
+int res_x, res_y; // 출발점 - 도착점의 절댓값을 씌운 각각의 변의 길이
+int res_z; // res_x, res_y 변수의 제곱한 결과
+int result; // 출발점에서 도착점까지의 최단거리
+
+int main(){
+    scanf("%d %d %d", &x, &y, &go_num);
+    if(go_num==1){ // 목적지가 하나일 경우
+        scanf("%d %d", &go_x, &go_y);
+        res_x = abs(x - go_x);
+        res_y = abs(y - go_y);
+        res_z = (res_x * res_x) + (res_y * res_y);
+        result = sqrt(res_z);
+        printf("%d\n", result);
+    }else{ // 목적지가 두 개 이상일 경우
+        for(int i=0;i<go_num;i++){
+            scanf("%d %d", &go_x, &go_y);
+            res_x = abs(x - go_x);
+            res_y = abs(y - go_y);
+            res_z = (res_x * res_x) + (res_y * res_y);
+            result = sqrt(res_z);
+            printf("%d\n",result);
+        }
+    }
+    return 0;
+}
